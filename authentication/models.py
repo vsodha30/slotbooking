@@ -42,9 +42,8 @@ class Employee(AbstractBaseUser):
     # Fields
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=40, unique=True)
-    first_name = models.CharField(max_length=40, blank=True)
-    last_name = models.CharField(max_length=40, blank=True)
-    role = models.CharField(max_length=1, choices=EMPLOYEE_ROLE)
+    # role = models.CharField(max_length=1, choices=EMPLOYEE_ROLE)
+    role = models.CharField(max_length=15)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

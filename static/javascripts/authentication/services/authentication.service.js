@@ -5,7 +5,7 @@
 (function () {
     'use strict';
     
-    angular.module('slotbooking.authentication.services').factory('Authentication', Authentication);
+    angular.module('slotbooking').factory('Authentication', Authentication);
     
     Authentication.$inject = ['$cookies', '$http'];
     
@@ -15,11 +15,12 @@
         };
         return Authentication;
 
-        function register(email, password, username){
+        function register(email, password, username, role){
             return $http.post('/api/v1/employees/',{
                 username: username,
                 password: password,
-                email: email
+                email: email,
+                role: role
             });
         }
 

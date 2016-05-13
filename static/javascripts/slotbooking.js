@@ -5,9 +5,9 @@
 (function () {
     'use strict';
 
-    angular.module('slotbooking', ['slotbooking.routes', 'slotbooking.authentication']);
+    angular.module('slotbooking', [/*'slotbooking.routes', 'slotbooking.authentication'*/ 'ngRoute', 'ngCookies']);
     
-    angular.module('slotbooking.routes', ['ngRoute']);
+    // angular.module('slotbooking.routes', ['ngRoute']);
 
     angular.module('slotbooking').run(run);
 
