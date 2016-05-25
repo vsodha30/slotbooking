@@ -13,25 +13,43 @@
 
         vm.register = register;
 
+        vm.registrationErrorMessage = null;
+
+
+        /*activate();
+
+        function activate() {
+            // If the employee is authenticated, then the employee should be redirected to home page .
+            if (Authentication.isAuthenticatedEmployee()) {
+                $location.url('/api/v1/employees/');
+            }
+        }*/
+
+
+
         // keep checks and validation for role , email , username
         // add confirm password feature
+
+
 
         vm.data = {
             selectedRole: null,
             availableRoles: [
-                {id: 'C', name: 'CEO'},
-                {id: 'M', name: 'Manager'},
-                {id: 'P', name: 'Project Lead'},
-                {id: 'S', name: 'Software Developer'},
-                {id: 'J', name: 'Junior Software Developer'},
-                {id: 'H', name: 'HR Manager'},
-                {id: 'Q', name: 'Quality Assurance Engineer'}
+                {id: 'CEO', name: 'CEO'},
+                {id: 'Manager', name: 'Manager'},
+                {id: 'Project Lead', name: 'Project Lead'},
+                {id: 'Software Developer', name: 'Software Developer'},
+                {id: 'Junior Software Developer', name: 'Junior Software Developer'},
+                {id: 'HR Manager', name: 'HR Manager'},
+                {id: 'Quality Assurance Engineer', name: 'Quality Assurance Engineer'}
             ]
         };
 
 
         function register() {
-            Authentication.register(vm.email, vm.password, vm.username, vm.data.selectedRole)
+            Authentication.register(vm.email, vm.password, vm.confirm_password, vm.username, vm.data.selectedRole, vm)
         }
+
+
     }
 })();

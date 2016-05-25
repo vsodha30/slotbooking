@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'compressor',
     'authentication',
+    'bookingsystem',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,20 +61,30 @@ WSGI_APPLICATION = 'slotbooking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgresConferenceBooking',
+        'USER': 'postgres',
+        'PASSWORD': 'postgrespass',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
-# import dj_database_url
-#
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-#     )
-# }
+
+
+
 
 
 # Internationalization
@@ -82,6 +93,7 @@ DATABASES = {
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
+#TIME_ZONE =  'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -94,7 +106,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'staticfiles'
+#STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = 'postgresStatic'
 #STATIC_ROOT = 'static'
 
 
@@ -115,6 +128,8 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
+
+# understand rest_framework, compress_enabled,
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
@@ -128,3 +143,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 #ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'authentication.Employee'
+
+# hoW TO include session properties it is not allowing ... maybe something to put into installed apps or to import something
+
+

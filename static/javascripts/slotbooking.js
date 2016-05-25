@@ -5,17 +5,17 @@
 (function () {
     'use strict';
 
-    angular.module('slotbooking', [/*'slotbooking.routes', 'slotbooking.authentication'*/ 'ngRoute', 'ngCookies']);
-    
-    // angular.module('slotbooking.routes', ['ngRoute']);
+    angular.module('slotbooking', ['ngRoute', 'ngCookies', 'ngMaterial']);
 
-    angular.module('slotbooking').run(run);
 
-    run.$inject = ['$http'];
+    angular.module('slotbooking').run(runBlock);
 
-    function run($http) {
+    runBlock.$inject = ['$http'//, '$cookies', '$rootScope'
+    ];
+
+    function runBlock($http//, $cookies, $scope
+    ) {
         $http.defaults.xsrfHeaderName = 'X-CSRFToken';
         $http.defaults.xsrfCookieName = 'csrftoken';
     }
-
 })();

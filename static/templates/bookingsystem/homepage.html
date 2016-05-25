@@ -1,0 +1,50 @@
+<div class="col-md-5">
+
+    <div class="row" ng-cloak="">
+        <md-content class="col-md-12">
+            <h2>Pick the Date</h2>
+            <md-datepicker ng-model="vm.selectedDate" md-placeholder="Enter date" md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
+        </md-content>
+    </div>
+
+    <div class="container-fluid" style="margin-left: 150px; padding:40px; margin-top: 200px">
+        <div class="row"><span><h3>Preview</h3></span></div>
+        <div class="row">
+            <img id="img" src="static/images/rBKWZk1464171661.jpg" height="400" width="520"/>
+        </div>
+    </div>
+
+</div>
+
+
+<div ng-cloak="">
+    <md-content>
+        <h2>Select Conference Room</h2>
+
+        <div class="col-md-3" style="padding: 20px; "> <!-- required for floating -->
+            <ul class="nav">
+                <li  data-ng-repeat="room in vm.rooms" data-ng-click="vm.selectRoom(room)" ng-class="{selected: room.id === vm.idSelectedConferenceRoom}" style="padding: 20px;"> {{room.name}} </li>
+            </ul>
+        </div>
+
+        <div class="col-md-9" data-ng-show="vm.selectedRoom">
+            <div style="margin-left: 100px">
+                <div class="tab-pane active"><h3>{{vm.selectedRoom.name}} Slots</h3>
+                    <div ng-repeat="slot in vm.slotTimings" style="padding: 15px;">
+                        <div class="row1">
+                            <label>{{ slot.startTime }} - {{ slot.endTime }}</label>
+                            <button type="button" ng-disabled="slot.booked && !slot.isCurrentUserOwner" ng-click="vm.bookFor(slot)" ng-class="slot.buttonClass" style="margin-left: 15px;">
+                                <span>{{ slot.buttonText }}</span>
+                            </button>
+                        </div>
+                        <div class="row2" ng-show="slot.booked">
+                            <span ng-hide="slot.isCurrentUserOwner">Booked By &nbsp;&nbsp; : &nbsp;&nbsp; {{ slot.slotOwner.username }}<br/> Designation &nbsp; : {{ slot.slotOwner.role }} </span>
+                            <span ng-show="slot.isCurrentUserOwner">Booked By &nbsp;&nbsp; :  You<br/> Designation &nbsp; : {{ slot.slotOwner.role }} </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </md-content>
+</div>

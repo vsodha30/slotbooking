@@ -24,6 +24,11 @@
          controllerAs: 'vm',
          templateUrl: '/static/templates/layout/index.html'
          })*/
+            .when('/homepage', {
+                controller: 'HomePageController',
+                controllerAs: 'vm',
+                templateUrl: '/static/templates/bookingsystem/homepage.html'
+            })
             .when('/register', {
                 controller: 'RegisterController',
                 controllerAs: 'vm',

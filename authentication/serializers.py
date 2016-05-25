@@ -2,15 +2,18 @@ from django.contrib.auth import update_session_auth_hash
 from rest_framework import serializers
 
 from authentication.models import Employee
+from bookingsystem.models import Booking
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=False)
     confirm_password = serializers.CharField(write_only=True, required=False)
+    my_bookings = serializers.PrimaryKeyRelatedField(many=True, queryset=Booking.objects.all(), required=False)                           # read_only = True
+
 
     class Meta:
         model = Employee
-        fields = ('id', 'email', 'username', 'created_at', 'updated_at', 'role', 'password', 'confirm_password',)
+        fields = ('id', 'email', 'username', 'created_at', 'updated_at', 'role', 'password', 'confirm_password', 'my_bookings', )
 
         read_only_fields = ('created_at', 'updated_at',)
 

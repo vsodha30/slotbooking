@@ -30,3 +30,17 @@
 .account .account__username {
   font-weight: bold;
 }
+/*.datepickerBasicUsage {*/
+  /*!** Demo styles for mdCalendar. *! }*/
+ /* .datepickerBasicUsage md-content {
+    padding-bottom: 200px; }
+  .datepickerBasicUsage .validation-messages {
+    font-size: 12px;
+    color: #f0f0f0;
+    margin: 10px 0 0 25px; }
+*/
+
+li.selected {
+  background: #5bc0de;
+}
+
