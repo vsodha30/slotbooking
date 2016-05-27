@@ -3,24 +3,24 @@
         <h1>Login</h1>
 
         <div class="well">
-            <form role="form" ng-submit="vm.login()">
+            <form name="loginForm" role="form" ng-submit="vm.login()">
                 <div class="alert alert-danger" ng-show="error" ng-bind="error"></div>
 
                 <div class="form-group">
                     <label for="login__username">Employee Name</label>
-                    <input type="text" class="form-control" id="login__username" ng-model="vm.username" placeholder="ex. john" />
+                    <input type="text" class="form-control" id="login__username" ng-model="vm.username" placeholder="ex. abc" required/>
                 </div>
 
                 <div class="form-group">
                     <label for="login__password">Password</label>
-                    <input type="password" class="form-control" id="login__password" ng-model="vm.password" placeholder="ex. thisisnotgoogleplus" />
+                    <input type="password" class="form-control" id="login__password" ng-model="vm.password" placeholder="ex. enterpassword" required/>
                 </div>
 
                 <div class="form-group alert alert-danger" ng-if="vm.loginErrorMessage"> {{ vm.loginErrorMessage }} </div>
 
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Submit</button>
                 </div>
             </form>
         </div>

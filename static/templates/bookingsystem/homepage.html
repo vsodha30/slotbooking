@@ -2,7 +2,7 @@
 
     <div class="row" ng-cloak="">
         <md-content class="col-md-12">
-            <h2>Pick the Date</h2>
+            <h2>Pick the Date to Book</h2>
             <md-datepicker ng-model="vm.selectedDate" md-placeholder="Enter date" md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
         </md-content>
     </div>
@@ -38,7 +38,7 @@
                             </button>
                         </div>
                         <div class="row2" ng-show="slot.booked">
-                            <span ng-hide="slot.isCurrentUserOwner">Booked By &nbsp;&nbsp; : &nbsp;&nbsp; {{ slot.slotOwner.username }}<br/> Designation &nbsp; : {{ slot.slotOwner.role }} </span>
+                            <span ng-hide="slot.isCurrentUserOwner">Booked By &nbsp;&nbsp; :  {{ slot.slotOwner.username }}<br/> Designation &nbsp; : {{ slot.slotOwner.role }} </span>
                             <span ng-show="slot.isCurrentUserOwner">Booked By &nbsp;&nbsp; :  You<br/> Designation &nbsp; : {{ slot.slotOwner.role }} </span>
                         </div>
                     </div>

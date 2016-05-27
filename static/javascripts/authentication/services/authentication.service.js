@@ -70,25 +70,17 @@
                 password: password
             }).then(loginSuccessFn, loginErrorFn);
 
-            /**
-             * @name loginSuccessFn
-             * @desc Set the authenticated employee and redirect to index
-             */
+           
 
             function loginSuccessFn(data, status, headers, config){
                 //vm.loginErrorMessage = null;
                 // login vm maybe not yet defined so error
 
                 Authentication.setAuthenticatedEmployee(data.data);
-                //window.location = '/api/v1/employees/';
-                //window.location = '#/homepage';
-                window.location = '#/homepage';
+                window.location = '/';
             }
 
-            /**
-             * @name loginErrorFn
-             * @desc Log "Login Failure!" to the console
-             */
+            
             function loginErrorFn(data, status, headers, config) {
                 vm.loginErrorMessage = data.data.message;
                 console.error('Login failure!');

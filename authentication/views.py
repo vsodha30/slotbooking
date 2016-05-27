@@ -65,7 +65,7 @@ class LoginView(views.APIView):
         else:
             return Response({
                 'status': 'Unauthorized',
-                'message': 'Username and Password combination invalid'
+                'message': 'Username or Password Incorrect'
             },status=status.HTTP_401_UNAUTHORIZED)
 
 

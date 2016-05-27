@@ -15,15 +15,19 @@
 
         vm.registrationErrorMessage = null;
 
+/*        vm.formData ={ 
+            password_c:''
+    };*/
+
 
         /*activate();
 
-        function activate() {
-            // If the employee is authenticated, then the employee should be redirected to home page .
-            if (Authentication.isAuthenticatedEmployee()) {
-                $location.url('/api/v1/employees/');
-            }
-        }*/
+         function activate() {
+         // If the employee is authenticated, then the employee should be redirected to home page .
+         if (Authentication.isAuthenticatedEmployee()) {
+         $location.url('/api/v1/employees/');
+         }
+         }*/
 
 
 

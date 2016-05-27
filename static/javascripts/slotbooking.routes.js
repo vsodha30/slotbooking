@@ -24,7 +24,7 @@
          controllerAs: 'vm',
          templateUrl: '/static/templates/layout/index.html'
          })*/
-            .when('/homepage', {
+            .when('/', {
                 controller: 'HomePageController',
                 controllerAs: 'vm',
                 templateUrl: '/static/templates/bookingsystem/homepage.html'
@@ -40,6 +40,6 @@
                 controllerAs: 'vm',
                 templateUrl: '/static/templates/authentication/login.html'
             })
-            .otherwise('/login');
+            .otherwise('/');
     }
 })();

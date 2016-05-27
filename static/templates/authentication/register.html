@@ -6,24 +6,32 @@
             <form name="registrationForm" class="form-horizontal" role="form" ng-submit="vm.register()">
                 <div class="form-group">
                     <label for="register__email">Company Email</label>
-                    <input type="email" class="form-control" name="emailInputField" id="register__email" ng-model="vm.email" placeholder="ex. john@notgoogle.com" />
+                    <input type="email" class="form-control" name="emailInputField" id="register__email" ng-model="vm.email" placeholder="ex. abc@g.com" required/>
+                    <span ng-show="registrationForm.emailInputField.$error.required && registrationForm.emailInputField.$dirty" style="color: red;">required</span>
                 </div>
 
                 <div class="form-group">
                     <label for="register__username">Username</label>
-                    <input type="text" class="form-control" id="register__username" ng-model="vm.username" placeholder="ex. john" />
+                    <input type="text" class="form-control" id="register__username" ng-model="vm.username" placeholder="ex. abc" required/>
                 </div>
 
                 <div class="form-group">
                     <label for="register__role" style="margin-right: 10px">Company Designation</label>
-                    <select id="register__role" class="selectpicker show-tick form-control" data-style="btn-primary" ng-model="vm.data.selectedRole" data-width="fit" >
+                    <select id="register__role" class="selectpicker show-tick form-control" data-style="btn-primary" ng-model="vm.data.selectedRole" data-width="fit" required>
                         <option ng-repeat="option in vm.data.availableRoles" value="{{option.id}}" >{{option.name}}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="register__password">Password</label>
-                    <input type="password" class="form-control" id="register__password" ng-model="vm.password" placeholder="ex. thisisnotgoogleplus" />
+                    <input type="password" class="form-control" id="register__password" name="register__password" ng-model="vm.password" placeholder="ex. enterpassword" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="password_c">Confirm Password</label>
+                    <input type="password" class="form-control" id="password_c" name="password_c" ng-model="vm.confirm_password" valid-password-c required/>
+                    <span ng-show="registrationForm.password_c.$error.required && registrationForm.password_c.$dirty" style="color: red;">Please confirm your password.</span>
+                    <span ng-show="!registrationForm.password_c.$error.required && registrationForm.password_c.$error.noMatch && registrationForm.password_c.$dirty" style="color: red;">Passwords do not match.</span>
                 </div>
 
                 <div class="form-group alert alert-danger" ng-if="vm.registrationErrorMessage">
@@ -31,7 +39,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" ng-disabled="registrationForm.emailInputField.length==0">Submit</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="registrationForm.$invalid">Submit</button>
                 </div>
             </form>
         </div>
