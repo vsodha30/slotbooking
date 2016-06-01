@@ -19,13 +19,13 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
 
     def get_permissions(self):
-        if self.request.method in permissions.SAFE_METHODS:          # I think u can only get all employees list when u are admin .... so later change the permission to IsAdmin
-            return (permissions.AllowAny(),)
+        # if self.request.method in permissions.SAFE_METHODS:          # I think u can only get all employees list when u are admin .... so later change the permission to IsAdmin
+        #     return (permissions.AllowAny(),)
 
         if self.request.method == 'POST':
             return (permissions.AllowAny(),)
 
-        return (permissions.IsAuthenticated(), IsEmployeeOwner(),)
+        # return (permissions.IsAuthenticated(), IsEmployeeOwner(),)
 
     def create(self, request):
         serializer = self.serializer_class(data=request.data)
@@ -34,11 +34,6 @@ class EmployeeViewSet(viewsets.ModelViewSet):
             Employee.objects.create_user(**serializer.validated_data)
 
             return Response(serializer.validated_data, status=status.HTTP_201_CREATED)
-
-        return Response({
-            'status': 'Bad request',
-            'message': 'Account could not be created with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
 
 
 class LoginView(views.APIView):
@@ -57,11 +52,11 @@ class LoginView(views.APIView):
                 login(request, employee)
                 serialized = EmployeeSerializer(employee)
                 return Response(serialized.data)
-            else:
-                return Response({
-                    'status': 'Unauthorized',
-                    'message': 'This account has been disabled.'
-                }, status=status.HTTP_401_UNAUTHORIZED)
+            # else:
+            #     return Response({
+            #         'status': 'Unauthorized',
+            #         'message': 'This account has been disabled.'
+            #     }, status=status.HTTP_401_UNAUTHORIZED)
         else:
             return Response({
                 'status': 'Unauthorized',

@@ -13,12 +13,9 @@ class Booking(models.Model):
 
    
     room_booked = models.IntegerField(choices=ROOM_NUMBERS, blank=False)
-    # date_booked = models.DateField(blank=False)
-    # slot_booked = models.IntegerField(choices=SLOT_NUMBERS, blank=False)
     start_date = models.DateTimeField(blank=False)
     end_date = models.DateTimeField(blank=False)
     booker_of_slot = models.ForeignKey(Employee, related_name='my_bookings', blank=False)
-    #is_booking_open = models.BooleanField(default=True)
 
     class Meta:
         unique_together = ('room_booked', 'start_date')

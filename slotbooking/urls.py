@@ -4,12 +4,12 @@ from rest_framework_nested import routers
 
 from authentication import views
 from authentication.views import EmployeeViewSet, LoginView, LogoutView
-from bookingsystem.views import BookingViewSet, EmployeeBookingsViewSet
+from bookingsystem.views import BookingViewSet#, EmployeeBookingsViewSet
 
 router = routers.SimpleRouter()
 router.register(r'employees', EmployeeViewSet)
 router.register(r'book', BookingViewSet)
-router.register(r'mybookings', EmployeeBookingsViewSet)
+#router.register(r'mybookings', EmployeeBookingsViewSet)
 
 # slotbookersrouter = routers.NestedSimpleRouter(
 #     router, r'mybookings', lookup='Employee'     # if works then maybe lookup takes a model name to lookup

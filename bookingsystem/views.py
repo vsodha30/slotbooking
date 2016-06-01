@@ -44,16 +44,16 @@ class BookingViewSet(viewsets.ModelViewSet):
 ### Big doubt of where is it called .... self.request.user    or   self.request.employee ...... becoz we want to display all the fields of Employee field in serializer so we so this
 
 
-class EmployeeBookingsViewSet(viewsets.ViewSet):
-    queryset = Booking.objects.select_related('booker_of_slot').all()
-    serializer_class = BookingSerializer
-    #  comment the below section then the error comes .... but as it is does not return the list of mybookings
-
-    def list(self, request, employee_username=None):
-        queryset = self.queryset.filter(booker_of_slot__username=employee_username)             ## what exactly is being done....
-        serializer = self.serializer_class(queryset, many=True)
-
-        return Response(serializer.data)
+# class EmployeeBookingsViewSet(viewsets.ViewSet):
+#     queryset = Booking.objects.select_related('booker_of_slot').all()
+#     serializer_class = BookingSerializer
+#     #  comment the below section then the error comes .... but as it is does not return the list of mybookings
+#
+#     def list(self, request, employee_username=None):
+#         queryset = self.queryset.filter(booker_of_slot__username=employee_username)             ## what exactly is being done....
+#         serializer = self.serializer_class(queryset, many=True)
+#
+#         return Response(serializer.data)
 
 
 
