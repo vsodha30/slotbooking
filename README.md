@@ -4,7 +4,6 @@ This is a simple Booking System webapp made in Django and Angularjs. Still left 
 
 
 Install :
+$ myvenv/bin/pip install -r requirements.txt
 
-debug_toolbar
-rest_framework
-coverage.py[Optional] - sudo pip install coverage
+
